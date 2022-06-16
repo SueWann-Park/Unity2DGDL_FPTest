@@ -18,9 +18,9 @@ public class PlayerMain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = /***************** TO BE FILLED ****************/
-        rb2d = /***************** TO BE FILLED ****************/
-        groundCheck = /***************** TO BE FILLED ****************/
+        animator = this.GetComponent<Animator>();
+        rb2d = this.GetComponent<Rigidbody2D>();
+        groundCheck = this.GetComponent<Transform>();
 
         isJumped = false;
         isGrounded = false;
@@ -47,29 +47,32 @@ public class PlayerMain : MonoBehaviour
         isGroundedPrev = isGrounded;
         isGrounded = false;
 
-        Collider2D[] c2ds = Physics2D.OverlapBoxAll(/****** TO BE FILLED ******/, new Vector2(2, 0.1f), 0);
+        Collider2D[] c2ds = Physics2D.OverlapBoxAll(transform.position, new Vector2(2, 0.1f), 0);
         foreach(Collider2D c2d in c2ds)
         {
             if(c2d.gameObject.layer == Layer.Road)
             {
-                /***************** TO BE FILLED ****************/
-                /***************** TO BE FILLED ****************/
+                isGrounded = true;
+                break;
             }
         }
     }
 
     private void CheckIsLanded()
     {
-        if (/***************** TO BE FILLED ****************/)
+        if (isGrounded = true)
         {
             isJumped = false;
 
-            animator./***************** TO BE FILLED ****************/
+            animator.SetTrigger("Idle");
+
         }
     }
 
     private void SetVelocity()
     {
+        rb2d.AddForce(Vector3.right * moveCoff);
+
         float x = Mathf.Clamp(xAxis * moveCoff, -5, 5);
         float y = Mathf.Clamp(rb2d.velocity.y, -10, 10);
 
@@ -92,11 +95,12 @@ public class PlayerMain : MonoBehaviour
         {
             xAxis = 0;
 
-            animator./***************** TO BE FILLED ****************/
+            animator.SetBool("isWalk", false);
+            animator.SetTrigger("Idle");
         }
         else
         {
-            animator./***************** TO BE FILLED ****************/
+            animator.SetBool("isWalk", true);
         }
     }
 
@@ -108,9 +112,9 @@ public class PlayerMain : MonoBehaviour
         if (isJumped == true)
             return;
 
-        isJumped = /***************** TO BE FILLED ****************/
-        rb2d.velocity = /***************** TO BE FILLED ****************/
+        isJumped = true;
+        rb2d.velocity = new Vector2(0, jumpCoff);
 
-        animator./***************** TO BE FILLED ****************/
+        animator.SetBool("isJump", true);
     }
 }
