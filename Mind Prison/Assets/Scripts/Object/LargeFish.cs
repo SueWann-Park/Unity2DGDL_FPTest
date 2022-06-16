@@ -9,7 +9,7 @@ public class LargeFish : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(/********** TO BE FILLED *********/);
+        StartCoroutine(UpdatePosition());
     }
 
     float xCoff;
@@ -22,23 +22,22 @@ public class LargeFish : MonoBehaviour
 
         for (; ;)
         {
-            transform.position = /********** TO BE FILLED *********/
+            transform.position = new Vector3( transform.position.x + xCoff, Mathf.Sin(Time.time) , 0);
 
             if (transform.position.x > 30)
             {
-                /********** TO BE FILLED *********/
-                /********** TO BE FILLED *********/
+                transform.position = new Vector3(-30, 2);
+                
             }
-
-            /***************** TO BE FILLED ****************/
+            yield return new WaitForFixedUpdate();
         }
     }
-
+    
     private void SetRandomValues()
     {
-        xCoff = Random.Range(0.005f, 0.015f);
+        xCoff = Random.Range(0.5f, 0.015f);
         yCoff1 = Random.Range(0.5f, 1f);
         yCoff2 = Random.Range(0.5f, 2f);
-        startY = /********** TO BE FILLED *********/
+        startY = 1.0f;  /********** TO BE FILLED *********/
     }
 }
