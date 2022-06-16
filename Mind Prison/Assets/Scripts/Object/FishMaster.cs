@@ -7,15 +7,18 @@ public class FishMaster : MonoBehaviour
     Sprite yellow;
     Sprite green;
     List<Transform> groups;
+    
+    
 
     // Start is called before the first frame update
+    
     void Start()
     {
-        green = /***************** TO BE FILLED ****************/
-        yellow = /***************** TO BE FILLED ****************/
-        groups = new /***************** TO BE FILLED ****************/
+        green = transform.Find("tiny fish 1").GetComponent<Sprite>();
+        yellow = transform.Find("tiny fish 2").GetComponent<Sprite>();
+        groups = new List<Transform>();
 
-        StartCoroutine(/***************** TO BE FILLED ****************/);
+        StartCoroutine(LazyMaker());
     }
 
     IEnumerator LazyMaker()
@@ -32,8 +35,8 @@ public class FishMaster : MonoBehaviour
         if (groups.Count >= 5)
             return;
 
-        // Initialize variables
-        int numFishes = /********** TO BE FILLED *********/
+        //Initialize variables
+        int numFishes = 8;
         int dir = Random.Range(0, 2); // 0 : right, 1: left
         int x = dir == 0 ? 20 : -20;
         int y = Random.Range(-6, 9);
@@ -45,8 +48,8 @@ public class FishMaster : MonoBehaviour
         GameObject group = new GameObject(); 
         groups.Add(group.transform);
 
-        group.transform.parent = /********** TO BE FILLED *********/
-        group.name = "Group" + /********** TO BE FILLED *********/.ToString();
+        group.transform.parent = this.transform;
+        group.name = "Group" + groups.Count.ToString();
 
         group.transform.localScale = new Vector3(   dir == 1 ? -1 : 1   , 1, 1);
         group.transform.position = new Vector2(x, y);
@@ -56,19 +59,19 @@ public class FishMaster : MonoBehaviour
         List<Coroutine> fishMoves = new List<Coroutine>();
         for(int i = 0; i < numFishes; i++)
         {
-            GameObject fish = /********** TO BE FILLED *********/
-            fish.name = "Fish" + /****** TO BE FILLED *****/.ToString();
-            fish.AddComponent<SpriteRenderer>().sprite = /********** TO BE FILLED *********/
-            fish.transform.parent = /********** TO BE FILLED *********/
+            GameObject fish = new GameObject();
+            fish.name = "Fish" + i.ToString();
+            fish.AddComponent<SpriteRenderer>().sprite = green;
+            fish.transform.parent = this.transform;
 
             fish.transform.localPosition = new Vector2(Random.Range(-2f, 2f), Random.Range(-1f, 1f));
             fish.transform.localScale = Vector3.one;
 
-            Coroutine fishMove = StartCoroutine(/********** TO BE FILLED *********/);
+            Coroutine fishMove = StartCoroutine(TwiggleFish(fish.transform));
             fishMoves.Add(fishMove);
         }
 
-        StartCoroutine(/********** TO BE FILLED *********/);
+        StartCoroutine(MoveGroup(group.transform, moveCoff, fishMoves));
     }
 
 
@@ -76,13 +79,13 @@ public class FishMaster : MonoBehaviour
     // Don't modify this function.
     IEnumerator TwiggleFish(Transform t)
     {
-        // y = c1 * sin(x * c2) + c3;
+        //y = c1 * sin(x * c2) + c3;
         float[] coffs = new float[6];
         for(int i =  0; i < 6; i++)
         {
             coffs[i] = Random.Range(-0.8f, 0.8f);
         }
-        // Get random coefficients for sin function
+        //Get random coefficients for sin function
 
         for(; ;)
         {
@@ -99,7 +102,7 @@ public class FishMaster : MonoBehaviour
         float accum = 0;
         for(int z = 0; ;z++)
         {
-            t.position += /********** TO BE FILLED *********/
+            t.position += new Vector3(z, 0, 0);
             accum += /********** TO BE FILLED *********/
 
 
@@ -118,4 +121,5 @@ public class FishMaster : MonoBehaviour
 
         groups.Remove(/********** TO BE FILLED *********/);
     }
+    */
 }
