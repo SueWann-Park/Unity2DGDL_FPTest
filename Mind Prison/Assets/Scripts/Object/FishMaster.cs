@@ -11,13 +11,13 @@ public class FishMaster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        green = /***************** TO BE FILLED ****************/
-        yellow = /***************** TO BE FILLED ****************/
-        groups = new /***************** TO BE FILLED ****************/
+        //green = /***************** TO BE FILLED ****************/
+        //yellow = /***************** TO BE FILLED ****************/
+       // groups = new /***************** TO BE FILLED ****************/
 
-        StartCoroutine(/***************** TO BE FILLED ****************/);
+       // StartCoroutine(/***************** TO BE FILLED ****************/);
     }
-
+    /*
     IEnumerator LazyMaker()
     {
         for(; ;)
@@ -26,14 +26,14 @@ public class FishMaster : MonoBehaviour
             yield return new WaitForSeconds(5);
         }
     }
-
+    /*
     void MakeFishes()
     {
         if (groups.Count >= 5)
             return;
 
         // Initialize variables
-        int numFishes = /********** TO BE FILLED *********/
+        int numFishes = /********** TO BE FILLED *********
         int dir = Random.Range(0, 2); // 0 : right, 1: left
         int x = dir == 0 ? 20 : -20;
         int y = Random.Range(-6, 9);
@@ -45,8 +45,8 @@ public class FishMaster : MonoBehaviour
         GameObject group = new GameObject(); 
         groups.Add(group.transform);
 
-        group.transform.parent = /********** TO BE FILLED *********/
-        group.name = "Group" + /********** TO BE FILLED *********/.ToString();
+        group.transform.parent = /********** TO BE FILLED *********
+        group.name = "Group" + /********** TO BE FILLED *********.ToString();
 
         group.transform.localScale = new Vector3(   dir == 1 ? -1 : 1   , 1, 1);
         group.transform.position = new Vector2(x, y);
@@ -56,19 +56,19 @@ public class FishMaster : MonoBehaviour
         List<Coroutine> fishMoves = new List<Coroutine>();
         for(int i = 0; i < numFishes; i++)
         {
-            GameObject fish = /********** TO BE FILLED *********/
-            fish.name = "Fish" + /****** TO BE FILLED *****/.ToString();
-            fish.AddComponent<SpriteRenderer>().sprite = /********** TO BE FILLED *********/
-            fish.transform.parent = /********** TO BE FILLED *********/
+            GameObject fish = /********** TO BE FILLED *********
+            fish.name = "Fish" + /****** TO BE FILLED *****.ToString();
+            fish.AddComponent<SpriteRenderer>().sprite = /********** TO BE FILLED *********
+            fish.transform.parent = /********** TO BE FILLED *********
 
             fish.transform.localPosition = new Vector2(Random.Range(-2f, 2f), Random.Range(-1f, 1f));
             fish.transform.localScale = Vector3.one;
 
-            Coroutine fishMove = StartCoroutine(/********** TO BE FILLED *********/);
+            Coroutine fishMove = StartCoroutine(/********** TO BE FILLED *********);
             fishMoves.Add(fishMove);
         }
 
-        StartCoroutine(/********** TO BE FILLED *********/);
+        StartCoroutine(/********** TO BE FILLED *********);
     }
 
 
@@ -99,13 +99,13 @@ public class FishMaster : MonoBehaviour
         float accum = 0;
         for(int z = 0; ;z++)
         {
-            t.position += /********** TO BE FILLED *********/
-            accum += /********** TO BE FILLED *********/
+            t.position += /********** TO BE FILLED *********
+            accum += /********** TO BE FILLED *********
 
 
             if (accum >= 40)
             {
-                /********** TO BE FILLED *********/
+                /********** TO BE FILLED *********
             }
 
             yield return new WaitForFixedUpdate();
@@ -113,9 +113,9 @@ public class FishMaster : MonoBehaviour
 
         for(int i = 0; i < fishMoves.Count; i++)
         {
-            StopCoroutine(/********** TO BE FILLED *********/);
+            StopCoroutine(/********** TO BE FILLED *********);
         }
 
-        groups.Remove(/********** TO BE FILLED *********/);
-    }
+        groups.Remove(/********** TO BE FILLED *********);
+    }*/
 }

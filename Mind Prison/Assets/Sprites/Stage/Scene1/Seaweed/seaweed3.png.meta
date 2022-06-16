@@ -39,6 +39,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -268,6 +269,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      seaweed3_3: 1178560315860086755
+      seaweed3_4: 693871014248426823
+      seaweed3_1: 7868685993175480456
+      seaweed3_0: -2276933480091735288
+      seaweed3_2: -8851703647831907266
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

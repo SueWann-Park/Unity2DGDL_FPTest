@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMain : MonoBehaviour
 {
-    private Rigidbody2D rb2d;
+   /* private Rigidbody2D rb2d;
     private Animator animator;
     private float xAxis;
     private bool isJumped;
@@ -18,9 +18,9 @@ public class PlayerMain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = /***************** TO BE FILLED ****************/
-        rb2d = /***************** TO BE FILLED ****************/
-        groundCheck = /***************** TO BE FILLED ****************/
+        animator = GetComponent<Animator>();
+        rb2d = GetComponent<Rigidbody2D>();
+        groundCheck = /***************** TO BE FILLED ****************
 
         isJumped = false;
         isGrounded = false;
@@ -47,24 +47,24 @@ public class PlayerMain : MonoBehaviour
         isGroundedPrev = isGrounded;
         isGrounded = false;
 
-        Collider2D[] c2ds = Physics2D.OverlapBoxAll(/****** TO BE FILLED ******/, new Vector2(2, 0.1f), 0);
+        Collider2D[] c2ds = Physics2D.OverlapBoxAll(/****** TO BE FILLED ******, new Vector2(2, 0.1f), 0);
         foreach(Collider2D c2d in c2ds)
         {
             if(c2d.gameObject.layer == Layer.Road)
             {
-                /***************** TO BE FILLED ****************/
-                /***************** TO BE FILLED ****************/
+                /***************** TO BE FILLED ****************
+                /***************** TO BE FILLED ****************
             }
         }
     }
 
     private void CheckIsLanded()
     {
-        if (/***************** TO BE FILLED ****************/)
+        if (/***************** TO BE FILLED ****************)
         {
             isJumped = false;
 
-            animator./***************** TO BE FILLED ****************/
+            animator./***************** TO BE FILLED ****************
         }
     }
 
@@ -73,7 +73,7 @@ public class PlayerMain : MonoBehaviour
         float x = Mathf.Clamp(xAxis * moveCoff, -5, 5);
         float y = Mathf.Clamp(rb2d.velocity.y, -10, 10);
 
-        /***************** TO BE FILLED ****************/
+        /***************** TO BE FILLED ****************
     }
 
 
@@ -92,11 +92,11 @@ public class PlayerMain : MonoBehaviour
         {
             xAxis = 0;
 
-            animator./***************** TO BE FILLED ****************/
+            animator.SetBool("Walk",false);
         }
         else
         {
-            animator./***************** TO BE FILLED ****************/
+            animator.SetBool("Walk",true);
         }
     }
 
@@ -108,9 +108,10 @@ public class PlayerMain : MonoBehaviour
         if (isJumped == true)
             return;
 
-        isJumped = /***************** TO BE FILLED ****************/
-        rb2d.velocity = /***************** TO BE FILLED ****************/
+        isJumped = /***************** TO BE FILLED ****************
+        rb2d.velocity = /***************** TO BE FILLED ****************
 
-        animator./***************** TO BE FILLED ****************/
+        animator./***************** TO BE FILLED ****************
     }
+*/
 }
